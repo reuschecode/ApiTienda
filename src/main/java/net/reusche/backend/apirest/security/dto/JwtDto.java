@@ -1,5 +1,6 @@
 package net.reusche.backend.apirest.security.dto;
 
+import net.reusche.backend.apirest.security.entity.interfaces.UsuarioInfo;
 import org.springframework.security.core.GrantedAuthority;
 
 import java.util.Collection;
@@ -8,12 +9,12 @@ public class JwtDto {
 
     private String token;
     private String bearer = "Bearer";
-    private String email;
+    private UsuarioInfo usuario;
     private Collection<? extends GrantedAuthority> authorities;
 
-    public JwtDto(String token, String email, Collection<? extends GrantedAuthority> authorities) {
+    public JwtDto(String token, UsuarioInfo usuario, Collection<? extends GrantedAuthority> authorities) {
         this.token = token;
-        this.email = email;
+        this.usuario = usuario;
         this.authorities = authorities;
     }
 
@@ -33,12 +34,12 @@ public class JwtDto {
         this.bearer = bearer;
     }
 
-    public String getEmail() {
-        return email;
+    public UsuarioInfo getUsuario() {
+        return usuario;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsuario(UsuarioInfo usuario) {
+        this.usuario = usuario;
     }
 
     public Collection<? extends GrantedAuthority> getAuthorities() {

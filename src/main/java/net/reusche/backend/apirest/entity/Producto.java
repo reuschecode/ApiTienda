@@ -93,10 +93,6 @@ public class Producto {
         this.activo = activo;
     }
 
-    public Empresa getEmpresa() {
-        return empresa;
-    }
-
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
     }

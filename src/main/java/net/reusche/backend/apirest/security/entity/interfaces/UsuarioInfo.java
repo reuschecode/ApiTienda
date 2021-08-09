@@ -6,6 +6,7 @@ public interface UsuarioInfo {
 
     int getIdUsuario();
     String getNombres();
+    String getApellidos();
     String getEmail();
     Tienda getTienda();
     boolean isActivo();

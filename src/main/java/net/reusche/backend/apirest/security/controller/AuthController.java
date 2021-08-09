@@ -6,6 +6,7 @@ import net.reusche.backend.apirest.security.dto.LoginUsuario;
 import net.reusche.backend.apirest.security.dto.NuevoUsuario;
 import net.reusche.backend.apirest.security.entity.Rol;
 import net.reusche.backend.apirest.security.entity.Usuario;
+import net.reusche.backend.apirest.security.entity.interfaces.UsuarioInfo;
 import net.reusche.backend.apirest.security.enums.RolNombre;
 import net.reusche.backend.apirest.security.jwt.JwtProvider;
 import net.reusche.backend.apirest.security.service.RolService;
@@ -92,13 +93,10 @@ public class AuthController {
             SecurityContextHolder.getContext().setAuthentication(auth);
             String jwt = jwtProvider.generateToken(auth);
             UserDetails userDetails = (UserDetails) auth.getPrincipal();
-            /*
             UsuarioInfo usuario = usuarioService.getByEmailUsuarioInfo(userDetails.getUsername());
             if(usuario == null)
                 return new ResponseEntity(new JsonMessageResponse("Usuario deshabilitado.", "ERROR"), HttpStatus.BAD_REQUEST);
-
-             */
-            JwtDto jwtDto = new JwtDto(jwt, userDetails.getUsername(), userDetails.getAuthorities());
+            JwtDto jwtDto = new JwtDto(jwt, usuario, userDetails.getAuthorities());
             return new ResponseEntity(jwtDto, HttpStatus.OK);
         }catch (Exception ex){
             return new ResponseEntity(new JsonMessageResponse("No existe un usuario con ese email o contraseña.", "NOT_FOUND"), HttpStatus.BAD_REQUEST);

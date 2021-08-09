@@ -1,6 +1,7 @@
 package net.reusche.backend.apirest.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class TipoProducto {
@@ -15,6 +16,9 @@ public class TipoProducto {
     @ManyToOne
     @JoinColumn(name = "id_empresa", nullable = false)
     private Empresa empresa;
+
+    @OneToMany(mappedBy = "tipoProducto")
+    private Set<SubtipoProducto> subtipoProductos;
 
     public int getIdTipoProducto() {
         return idTipoProducto;
@@ -31,4 +35,5 @@ public class TipoProducto {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
 }
