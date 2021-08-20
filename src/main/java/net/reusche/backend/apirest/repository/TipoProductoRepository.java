@@ -12,4 +12,6 @@ import java.util.Optional;
 public interface TipoProductoRepository extends JpaRepository<TipoProducto, Integer> {
 
     List<TiposWithSubtipos> findAllByEmpresa_IdEmpresa(int idEmpresa);
+
+    boolean existsByNombre(String nombre);
 }

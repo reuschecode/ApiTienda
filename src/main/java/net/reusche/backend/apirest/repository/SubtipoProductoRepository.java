@@ -16,4 +16,6 @@ public interface SubtipoProductoRepository extends JpaRepository<SubtipoProducto
      */
     Optional<SubtipoProducto> findAllByTipoProducto_IdTipoProducto(int idTipoProducto);
 
+    boolean existsByNombre(String nombre);
+
 }

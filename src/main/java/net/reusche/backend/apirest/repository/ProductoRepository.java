@@ -1,8 +1,10 @@
 package net.reusche.backend.apirest.repository;
 
+import net.reusche.backend.apirest.dto.ProductoActivo;
 import net.reusche.backend.apirest.entity.Producto;
 import net.reusche.backend.apirest.entity.interfaces.ProductoNameAndId;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -17,6 +19,11 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
     boolean existsByNombre(String nombre);
 
     Optional<Producto> findByNombre(String nombre);
+
+    @Modifying(clearAutomatically = true)
+    @Query("UPDATE Producto SET activo = :activo WHERE idProducto = :idProducto")
+    void changeActivo(Long idProducto, boolean activo);
+
     /*
     public static final String FIND_ONLY_NAME_AND_ID = "SELECT producto.id_producto, producto.nombre " +
             "FROM producto LEFT OUTER JOIN subtipo_producto ON producto.id_subtipo_producto = subtipo_producto.id_subtipo_producto "+

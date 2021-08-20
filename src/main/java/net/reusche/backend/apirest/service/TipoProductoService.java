@@ -29,4 +29,8 @@ public class TipoProductoService {
     public void updateTipoProducto(TipoProducto tipoProducto){
         tipoProductoRepository.save(tipoProducto);
     }
+
+    public boolean existByNombre(String nombre){
+        return tipoProductoRepository.existsByNombre(nombre);
+    }
 }

@@ -40,4 +40,8 @@ public class SubtipoProductoService {
         subtipoProductoRepository.save(subtipoProducto);
     }
 
+    public boolean existByNombre(String nombre){
+        return subtipoProductoRepository.existsByNombre(nombre);
+    }
+
 }

@@ -11,4 +11,6 @@ import java.util.Optional;
 public interface MarcaProductoRepository extends JpaRepository<MarcaProducto, Long> {
 
     List<MarcaProducto> findAllByEmpresa_IdEmpresa(int idEmpresa);
+
+    boolean existsByNombre(String nombre);
 }

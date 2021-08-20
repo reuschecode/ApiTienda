@@ -1,10 +1,16 @@
 package net.reusche.backend.apirest.dto;
 
+import net.reusche.backend.apirest.entity.Empresa;
+import net.reusche.backend.apirest.entity.MarcaProducto;
+import net.reusche.backend.apirest.entity.SubtipoProducto;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 public class ProductoDto {
+
+    private Long idProducto;
 
     @NotBlank
     private String nombre;
@@ -18,14 +24,22 @@ public class ProductoDto {
     private boolean activo = true;
 
     @NotNull
-    private int idEmpresa;
+    private int empresa;
 
-    private Long idSubtipoProducto;
+    private Long subtipoProducto;
 
-    private Long idMarcaProducto;
+    private Long marcaProducto;
 
     public String getNombre() {
         return nombre;
+    }
+
+    public Long getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(Long idProducto) {
+        this.idProducto = idProducto;
     }
 
     public void setNombre(String nombre) {
@@ -56,27 +70,27 @@ public class ProductoDto {
         this.activo = activo;
     }
 
-    public int getIdEmpresa() {
-        return idEmpresa;
+    public int getEmpresa() {
+        return empresa;
     }
 
-    public void setIdEmpresa(int idEmpresa) {
-        this.idEmpresa = idEmpresa;
+    public void setEmpresa(int empresa) {
+        this.empresa = empresa;
     }
 
-    public Long getIdSubtipoProducto() {
-        return idSubtipoProducto;
+    public Long getSubtipoProducto() {
+        return subtipoProducto;
     }
 
-    public void setIdSubtipoProducto(Long idSubtipoProducto) {
-        this.idSubtipoProducto = idSubtipoProducto;
+    public void setSubtipoProducto(Long subtipoProducto) {
+        this.subtipoProducto = subtipoProducto;
     }
 
-    public Long getIdMarcaProducto() {
-        return idMarcaProducto;
+    public Long getMarcaProducto() {
+        return marcaProducto;
     }
 
-    public void setIdMarcaProducto(Long idMarcaProducto) {
-        this.idMarcaProducto = idMarcaProducto;
+    public void setMarcaProducto(Long marcaProducto) {
+        this.marcaProducto = marcaProducto;
     }
 }

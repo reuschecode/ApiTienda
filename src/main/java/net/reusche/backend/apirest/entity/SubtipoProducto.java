@@ -20,11 +20,24 @@ public class SubtipoProducto {
     @OneToMany(mappedBy = "subtipoProducto")
     private Set<Producto> productos;
 
+    public SubtipoProducto(Long idSubtipoProducto){
+        this.idSubtipoProducto = idSubtipoProducto;
+    }
+
+    public SubtipoProducto() {
+
+    }
+
+    public SubtipoProducto(String nombre, TipoProducto tipoProducto) {
+        this.nombre = nombre;
+        this.tipoProducto = tipoProducto;
+    }
+
     public Long getIdSubtipoProducto() {
         return idSubtipoProducto;
     }
 
-    public void setIdMarcaProducto(Long idSubtipoProducto) {
+    public void setIdSubtipoProducto(Long idSubtipoProducto) {
         this.idSubtipoProducto = idSubtipoProducto;
     }
 

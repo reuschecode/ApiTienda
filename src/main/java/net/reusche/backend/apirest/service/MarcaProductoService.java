@@ -31,4 +31,8 @@ public class MarcaProductoService {
     public void updateMarca(MarcaProducto marcaProducto){
         marcaProductoRepository.save(marcaProducto);
     }
+
+    public boolean existByNombre(String nombre){
+        return marcaProductoRepository.existsByNombre(nombre);
+    }
 }

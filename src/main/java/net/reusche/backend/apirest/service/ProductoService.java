@@ -1,5 +1,6 @@
 package net.reusche.backend.apirest.service;
 
+import net.reusche.backend.apirest.dto.ProductoActivo;
 import net.reusche.backend.apirest.entity.Producto;
 import net.reusche.backend.apirest.entity.interfaces.ProductoNameAndId;
 import net.reusche.backend.apirest.repository.ProductoRepository;
@@ -33,9 +34,9 @@ public class ProductoService {
         return productoRepository.findAllByEmpresa_IdEmpresaAndActivoIsTrueOrderByIdProductoDesc(idEmpresa);
     }
 
-    public void changeProductoActivo(Producto producto){
+    public void changeProductoActivo(ProductoActivo producto){
         producto.setActivo(!producto.isActivo());
-        productoRepository.save(producto);
+        productoRepository.changeActivo(producto.getIdProducto(), producto.isActivo());
     }
 
     public Optional<Producto> getByNombre(String nombre){

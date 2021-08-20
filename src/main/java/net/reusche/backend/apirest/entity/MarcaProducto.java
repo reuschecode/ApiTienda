@@ -20,6 +20,19 @@ public class MarcaProducto {
     @OneToMany(mappedBy = "marcaProducto")
     private Set<Producto> productos;
 
+    public MarcaProducto(Long idMarcaProducto){
+        this.idMarcaProducto = idMarcaProducto;
+    }
+
+    public MarcaProducto() {
+
+    }
+
+    public MarcaProducto(String nombre, Empresa empresa){
+        this.nombre = nombre;
+        this.empresa = empresa;
+    }
+
     public Long getIdMarcaProducto() {
         return idMarcaProducto;
     }
